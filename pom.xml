@@ -98,11 +98,9 @@
         -->
     
         <!-- POSTGRESQL driver. Uncomment if you need to -->
-        <!--
         <jdbc.groupId>postgresql</jdbc.groupId>
         <jdbc.artifactId>postgresql</jdbc.artifactId>
         <jdbc.version>9.0-801.jdbc4</jdbc.version>      
-        -->
 
         <!-- MYSQL driver. Uncomment if you need to -->
         <!--
