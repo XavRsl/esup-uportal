@@ -1,0 +1,30 @@
+/* Adapts the customization ("Personnalisation") link */
+.up-gallery .handle a span:lang(fr) { 
+    font-size: 0.9em;
+    margin-right: 2px;
+    padding-bottom: 2px;
+    padding-left: 2px;
+    padding-right: 25px;
+    padding-top: 2px;
+}
+
+/* In the gallery, moves the "Packages" label a little to the right so it does not run over the "Services" link*/
+.up-gallery .packages-column h3:lang(fr) {
+    left: 74px;
+}
+
+/* Changes the width of the items in the flyout menu */
+#portalNavigation .portal-flyout-container:lang(fr) {
+    display: none;
+    position: absolute;
+    width: 240px;
+    z-index: 100000;
+}
+
+/* Makes some graphical adjustments for the "French version" of the email-preview portlet */
+.plt-email-row label:lang(fr) {
+   float: left;
+   display: table-cell; 
+   white-space: nowrap; 
+   width: 18em;
+}
