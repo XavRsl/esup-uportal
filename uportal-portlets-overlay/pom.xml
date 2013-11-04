@@ -26,7 +26,7 @@
         <module>pluto-testsuite</module>
         <module>NewsReaderPortlet</module>
         <module>NotificationPortlet</module>
-        <module>SimpleContentPortlet</module>
+        <!--<module>SimpleContentPortlet</module>-->
         <module>WeatherPortlet</module>
         <module>WebProxyPortlet</module>
     </modules>

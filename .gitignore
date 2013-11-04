@@ -11,3 +11,5 @@
 /assembly/.ant-targets-build.xml
 *.iml
 /.idea
+.DS_Store
+.DS_Store?
