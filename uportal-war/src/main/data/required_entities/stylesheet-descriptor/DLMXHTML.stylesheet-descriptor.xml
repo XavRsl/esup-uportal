@@ -30,10 +30,10 @@
     xsi:schemaLocation="https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor https://source.jasig.org/schemas/uportal/io/stylesheet-descriptor/stylesheet-descriptor-4.0.xsd">
     <name>DLMXHTML</name>
     <description>Renders DLMTabsColumns as xhtml</description>
-    <uri>classpath:/layout/theme/universality/universality.xsl</uri>
+    <uri>classpath:/layout/theme/UVSQTheme/UVSQTheme.xsl</uri>
     <stylesheet-parameter>
         <name>skin</name>
-        <default-value>uportal3</default-value>
+        <default-value>UVSQSkin</default-value>
         <scope>PERSISTENT</scope>
         <description>Skin name</description>
     </stylesheet-parameter>
