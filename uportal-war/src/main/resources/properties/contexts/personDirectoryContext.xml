@@ -251,14 +251,16 @@
 
         <property name="resultAttributeMapping">
             <map>
-                <entry key="eduPersonPrimaryAffiliation">    <value>eduPersonPrimaryAffiliation</value></entry>                
+                <!--<entry key="eduPersonPrimaryAffiliation">    <value>eduPersonPrimaryAffiliation</value></entry>                -->
                 <entry key="eduPersonAffiliation">            <value>eduPersonAffiliation</value></entry>                
                 <entry key="cn">                            <value>cn</value></entry>
-                <entry key="description">                   <value>description</value></entry>
+                <!--<entry key="description">                   <value>description</value></entry>-->
                 <entry key="displayName">                   <value>displayName</value></entry>
                 <entry key="facsimileTelephoneNumber">      <value>facsimileTelephoneNumber</value></entry>
                 <entry key="givenName">                     <value>givenName</value></entry>
                 <entry key="mail">                          <value>mail</value></entry>
+                <entry key="login">                          <value>login</value></entry>
+                <entry key="uid">                          <value>uid</value></entry>
                 <entry key="postalAddress">                 <value>postalAddress</value></entry>
                 <entry key="sn">                            <value>sn</value></entry>
                 <entry key="telephoneNumber">               <value>telephoneNumber</value></entry>
@@ -273,9 +275,16 @@
                 <entry key="supannEtuId">                   <value>supannEtuId</value></entry>
                 <entry key="supannEmpId">                   <value>supannEmpId</value></entry>
                 <entry key="eduPersonAffiliation">          <value>eduPersonAffiliation</value></entry>
+                <entry key="uvsqGroupe">                    <value>uvsqGroupe</value></entry>
                 <entry key="supannaffectation">             <value>supannaffectation</value></entry>
                 <entry key="objectclass">                   <value>objectclass</value></entry>
                 <entry key="supannorganisme">               <value>supannorganisme</value></entry>
+                <entry key="shadowLastChange">               <value>shadowLastChange</value></entry>
+                <entry key="uvsqServeurImap">               <value>uvsqServeurImap</value></entry>
+                <entry key="uvsqStudentCodeEtape">          <value>uvsqStudentCodeEtape</value></entry>
+                <entry key="uvsqEmployeeCodeService">          <value>uvsqEmployeeCodeService</value></entry>
+                <entry key="uvsqEmployeeComposante">          <value>uvsqEmployeeComposante</value></entry>
+                <entry key="uvsqEmployeeCodeComposante">          <value>uvsqEmployeeCodeComposante</value></entry>
             </map>
         </property>
     </bean>

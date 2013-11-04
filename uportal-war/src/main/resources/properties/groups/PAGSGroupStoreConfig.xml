@@ -85,8 +85,420 @@
         </test>
       </test-group>
     </selection-test>
+    <members>
+      <member-key>TousPers</member-key>
+      <member-key>TousEtud</member-key>
+      <member-key>TousInvites</member-key>
+    </members>
   </group>
   
+	<group>
+    <group-key>TousPers</group-key>
+    <group-name>LDAP Tout le personnel</group-name>
+    <group-description>Tout le personnel de l'etablissement issu de LDAP</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>faculty</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>staff</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>employee</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>researcher</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+    <members>
+			<member-key>Apogee</member-key>
+			<member-key>esup-geisha</member-key>
+			<member-key>TousEns</member-key>
+			<member-key>DRIP</member-key>
+			<member-key>SCD</member-key>
+			<member-key>DVE</member-key>
+			<member-key>DFC</member-key>
+			<member-key>TousPersHarpege</member-key>
+			<member-key>moncompte</member-key>
+			<member-key>non-moncompte</member-key>
+			<member-key>webmail-perso</member-key>
+			<member-key>webmail-autre</member-key>
+			<member-key>webmail-isty</member-key>
+    </members>
+  </group>
+
+  <group>
+    <group-key>TousEtud</group-key>
+    <group-name>LDAP Tous les etudiants</group-name>
+    <group-description>Tous les etudiants de l'etablissement issus de LDAP</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>student</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+    <members>
+      <member-key>TousEtudPACES1</member-key>
+	</members>
+  </group>
+
+  <group>
+    <group-key>TousEtudPACES1</group-key>
+    <group-name>Etudiants en PACES1</group-name>
+    <group-description>Tous les etudiants en PACES1 (uvsqStudentCodeEtape=PACES1)</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>uvsqStudentCodeEtape</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>PACES1</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+
+  <group>
+    <group-key>TousInvites</group-key>
+    <group-name>LDAP Tous les invites</group-name>
+    <group-description>Tous les invites de l'etablissement issus de LDAP</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>alum</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>affiliate</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+  
+  <group>
+    <group-key>EnsGeishaSaisie</group-key>
+    <group-name>Acces esup-geisha saisie</group-name>
+    <group-description>Tous les faculty de IUT VELIZY, SJP, SS, MANTES, OVSQ, ISM et ICI</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>I</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>ISM</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>J</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>SS</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>L</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>M</test-value>
+        </test>
+      </test-group>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>ICI</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+
+  <group>
+    <group-key>EnsGeishaFerme</group-key>
+    <group-name>Acces esup-geisha ferme</group-name>
+    <group-description>Tous les faculty sauf les faculty de IUT VELIZY, SJP, SS, MANTES, OVSQ et ISM</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>I</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>ISM</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>J</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>SS</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>L</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>M</test-value>
+        </test>
+        <test>
+          <attribute-name>uvsqEmployeeCodeComposante</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+          <test-value>ICI</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+
+  <group>
+    <group-key>Apogee</group-key>
+    <group-name>Acces Apogee</group-name>
+    <group-description>Tous les utilisateurs ayant APPLIS:APOGEE ds uvsqGroupe (LDAP)</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>uvsqGroupe</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>APPLIS:APOGEE</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+  </group>
+  
+  <group>
+    <group-key>TousEns</group-key>
+    <group-name>Tous les enseignants</group-name>
+    <group-description>Tous les enseignants (LDAP : edupersonaffiliation = faculty)</group-description>
+    <selection-test>
+      <test-group>
+        <test>
+          <attribute-name>eduPersonAffiliation</attribute-name>
+          <tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+          <test-value>faculty</test-value>
+        </test>
+      </test-group>
+    </selection-test>
+    <members>
+	  <member-key>EnsGeishaSaisie</member-key>
+	  <member-key>EnsGeishaFerme</member-key>
+    </members>
+  </group>
+  
+  <group>
+		<group-key>DRIP</group-key>
+		<group-name>DRIP</group-name>
+		<group-description>DRIP - Réussite et insertion professionnelle</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqEmployeeCodeService</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>OUIOV</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>SCD</group-key>
+		<group-name>SCD</group-name>
+		<group-description>SCD - Service Commun de la Documentation</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqEmployeeCodeService</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>OSCD</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>DVE</group-key>
+		<group-name>DVE</group-name>
+		<group-description>DVE - Direction de la Vie Etudiante</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqEmployeeCodeService</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>OSVE</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>DFC</group-key>
+		<group-name>DFC</group-name>
+		<group-description>DFC - Direction de la Formation Continue</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqEmployeeCodeService</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>OFC</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>TousPersHarpege</group-key>
+		<group-name>Tous les Personnels dans Harpege</group-name>
+		<group-description>Tous les Personnels dans Harpege </group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>supannEmpId</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.ValueExistsTester</tester-class>
+					<test-value>dummy</test-value>
+				</test>
+				<test>
+					<attribute-name>supannEmpId</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.IntegerGETester</tester-class>
+					<test-value>1</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+
+	<group>
+		<group-key>moncompte</group-key>
+		<group-name>MonCompte</group-name>
+		<group-description>Tout le personnel ayant suivi la procedure dans moncompte.uvsq.fr</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>shadowLastChange</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.ValueExistsTester</tester-class>
+					<test-value>dummy</test-value>
+				</test>
+				<test>
+					<attribute-name>shadowLastChange</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.IntegerGETester</tester-class>
+					<test-value>1</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+
+	<group>
+		<group-key>non-moncompte</group-key>
+		<group-name>NonMonCompte</group-name>
+		<group-description>Tout le personnel n'ayant pas suivi la procedure dans moncompte.uvsq.fr</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>shadowLastChange</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+					<test-value>dummy</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+
+	<group>
+		<group-key>webmail-perso</group-key>
+		<group-name>Webmail-perso</group-name>
+		<group-description>Utilisateurs du webmail personnels</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqServeurImap</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>POSTE</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>webmail-autre</group-key>
+		<group-name>Webmail-autre</group-name>
+		<group-description>Utilisateurs du webmail autre</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqServeurImap</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+					<test-value>POSTE</test-value>
+				</test>
+				<test>
+					<attribute-name>uvsqServeurImap</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.ValueMissingTester</tester-class>
+					<test-value>ISTY</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
+	<group>
+		<group-key>webmail-isty</group-key>
+		<group-name>Webmail-isty</group-name>
+		<group-description>Utilisateurs du webmail isty</group-description>
+		<selection-test>
+			<test-group>
+				<test>
+					<attribute-name>uvsqServeurImap</attribute-name>
+					<tester-class>org.jasig.portal.groups.pags.testers.StringEqualsIgnoreCaseTester</tester-class>
+					<test-value>ISTY</test-value>
+				</test>
+			</test-group>
+		</selection-test>
+	</group>
+	
   <group>
     <group-key>authenticated_users</group-key>
     <group-name>Authenticated Users</group-name>
