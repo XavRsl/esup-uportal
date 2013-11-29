@@ -64,7 +64,7 @@
     <xsl:choose>
     	<xsl:when test="$CONTEXT = 'header'">  <!-- When the context is 'header' render the main navigation as tabs. -->
       	
-        <div id="portalNavigation" class="container">
+        <div id="portalNavigation">
           <!-- Optional Tab Groups -->
           <xsl:if test="$USE_TAB_GROUPS='true'">
             <h3 class="fl-offScreen-hidden">Tab Groups</h3>
@@ -109,8 +109,8 @@
             </div>
           </xsl:if>
           <!-- Tabs -->
-          <div id="portalNavigationInner" class="{$CONTEXT} header">
-            <ul id="portalNavigationList" class="fl-tabs flc-reorderer-column nav nav-tabs">
+          <div id="portalNavigationInner" class="{$CONTEXT}">
+            <ul id="portalNavigationList" class="fl-tabs flc-reorderer-column">
               <xsl:if test="$AUTHENTICATED='true' and $USE_ADD_TAB='true' and not(//focused)">
                 <li class="portal-navigation-add-item">
                   <a href="javascript:;" title="{upMsg:getMessage('add.tab', $USER_LANG)}" class="portal-navigation-add"><xsl:value-of select="upMsg:getMessage('add.tab', $USER_LANG)"/></a>
@@ -135,8 +135,8 @@
       </xsl:when>
       <xsl:otherwise>  <!-- Otherwise, render the main navigation as a widget (generally assumes the context is the sidebar). -->
       
-      	<div id="portalNavigation" class="container">
-          <div id="portalNavigationInner" class="header {$CONTEXT}">
+      	<div id="portalNavigation" class="fl-widget">
+          <div id="portalNavigationInner" class="fl-widget-inner {$CONTEXT}">
             <div class="fl-widget-titlebar">
               <xsl:choose>
                 <xsl:when test="$USE_SIDEBAR_TOGGLE='true'">

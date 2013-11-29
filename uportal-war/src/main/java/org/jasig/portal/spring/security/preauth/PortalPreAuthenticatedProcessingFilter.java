@@ -295,6 +295,8 @@ public class PortalPreAuthenticatedProcessingFilter extends AbstractPreAuthentic
 
             // Attempt to authenticate using the incoming request
             authenticationService.authenticate(request, principals, credentials, person);
+            // and call afterAuthentication if implemented
+            afterPortalAuthentication(request, person);
         }
         catch (Exception e) {
             // Log the exception
@@ -306,7 +308,17 @@ public class PortalPreAuthenticatedProcessingFilter extends AbstractPreAuthentic
         }
     }
 
+    
     /**
+     * override if you need to do somethin after portal authentication
+     * @param request current servlet request
+     * @param person portal iperson object
+     */
+    protected void afterPortalAuthentication(HttpServletRequest request, IPerson person) {
+    	return;
+	}
+
+	/**
      * Get the values represented by each token from the request and load them into a
      * HashMap that is returned.
      * @param tokens

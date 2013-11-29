@@ -107,6 +107,17 @@
     <listener>
         <listener-class>org.jasig.portal.utils.web.RequestAttributeMutexListener</listener-class>
     </listener>
+
+		<filter>
+					<filter-name>CAS Single Sign Out Filter</filter-name>
+					<filter-class>fr.insa_lyon.cas.client.session.SingleSignOutFilter</filter-class>
+					<init-param>
+						<description>forward sso logout to this hosts (;)</description>
+						<param-name>logoutForwardTo</param-name>
+						<param-value>${environment.build.cas.signout.forwardto}</param-value>
+					</init-param>
+		</filter>
+
     
     <filter>
         <filter-name>CAS Validate Filter</filter-name>
@@ -252,6 +263,11 @@
     
     <!-- FILTER ORDER IS VERY IMPORTANT. DO NOT CHANGE ORDER WITHOUT VERY GOOD REASON -->
     
+		<filter-mapping>
+					<filter-name>CAS Single Sign Out Filter</filter-name>
+					<url-pattern>/Login</url-pattern>
+		</filter-mapping>
+
     <filter-mapping>
         <filter-name>ExceptionLoggingFilter</filter-name>
         <url-pattern>/*</url-pattern>

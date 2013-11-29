@@ -104,7 +104,7 @@
         	<meta http-equiv="pragma" content="no-cache" />
         </xsl:if>
         <meta name="description" content="{upMsg:getMessage('portal.page.meta.description', $USER_LANG)}" />
-        <meta name="keywords" content="blabla, blibli, {upMsg:getMessage('portal.page.meta.keywords', $USER_LANG)}" />
+        <meta name="keywords" content="blabla, {upMsg:getMessage('portal.page.meta.keywords', $USER_LANG)}" />
         <xsl:if test="$PORTAL_SHORTCUT_ICON != ''">
         	<link rel="shortcut icon" href="{$PORTAL_SHORTCUT_ICON}" type="image/x-icon" />
         </xsl:if>
@@ -195,8 +195,8 @@
    | This template renders the page header.
   -->
   <xsl:template match="header">
-    <div id="portalPageHeader">  <!-- Div for presentation/formatting options. -->
-    	<div id="portalPageHeaderInner" class="container">  <!-- Inner div for additional presentation/formatting options. -->
+    <div id="portalPageHeader" class="fl-container-flex">  <!-- Div for presentation/formatting options. -->
+    	<div id="portalPageHeaderInner">  <!-- Inner div for additional presentation/formatting options. -->
     
 	        <xsl:choose>
 	          <xsl:when test="$AUTHENTICATED != 'true'">
@@ -253,7 +253,7 @@
         <xsl:otherwise><xsl:value-of select="count(column)"/></xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <div id="portalPageBody" class="container fl-container-flex fl-fix">  <!-- Div for presentation/formatting options. -->
+    <div id="portalPageBody" class="fl-container-flex fl-fix">  <!-- Div for presentation/formatting options. -->
     	<div id="portalPageBodyInner">  <!-- Inner div for additional presentation/formatting options. -->
       
         <!-- ****** BODY LAYOUT ****** -->
@@ -471,7 +471,7 @@
    | The footer channel is located at: webpages\stylesheets\org\jasig\portal\channels\CGenericXSLT\footer\footer_webbrowser.xsl.
   -->
   <xsl:template match="footer">
-    <div id="portalPageFooter" class="container fl-container-flex">
+    <div id="portalPageFooter" class="fl-container-flex">
     	<div id="portalPageFooterInner">
       
         <!-- ****** FOOTER BLOCK ****** -->

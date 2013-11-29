@@ -59,10 +59,10 @@
   -->
   <xsl:template name="skip.nav">
   	<div id="portalSkipNav">
-      <a href="#portalNavigation" title="{upMsg:getMessage('skip.to.page.navigation', $USER_LANG)}" id="skipToNav" accesskey="N" class="sr-only">
+      <a href="#portalNavigation" title="{upMsg:getMessage('skip.to.page.navigation', $USER_LANG)}" id="skipToNav" accesskey="N">
         <xsl:value-of select="upMsg:getMessage('skip.to.page.navigation', $USER_LANG)"/>
       </a>
-      <a href="#portalPageBody" title="{upMsg:getMessage('skip.to.page.content', $USER_LANG)}" id="skipToContent" accesskey="C" class="sr-only">
+      <a href="#portalPageBody" title="{upMsg:getMessage('skip.to.page.content', $USER_LANG)}" id="skipToContent" accesskey="C">
         <xsl:value-of select="upMsg:getMessage('skip.to.page.content', $USER_LANG)"/>
       </a>
     </div>
@@ -99,8 +99,8 @@
         </xsl:otherwise>
       </xsl:choose>
       <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
-      <div id="portalPageBarLinks" class="col-md-4">
-      	<ul class="utilities list-inline pull-right">
+      <div id="portalPageBarLinks">
+      	<ul class="utilities">
 	      	<xsl:choose>
 	          <xsl:when test="//focused">
 	            <!-- ****** PORTAL PAGE BAR LINKS FOCUSED BLOCK ****** -->
@@ -258,7 +258,7 @@
    | This template renders the portal logo.
   -->
   <xsl:template name="logo">
-    <div id="portalLogo"  class="col-md-4">
+    <div id="portalLogo">
       <xsl:variable name="homeUrl">
         <xsl:call-template name="portalUrl"/>
       </xsl:variable>
@@ -349,7 +349,7 @@
   -->
   <xsl:template name="welcome">
     <xsl:if test="$AUTHENTICATED='true'"> <!-- Welcome only displays if the user is logged in. -->
-      <div id="portalWelcome" class="col-md-4 col-md-offset-4">
+      <div id="portalWelcome">
         <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
         <xsl:choose>
           <xsl:when test="$userImpersonating = 'true'">
@@ -558,9 +558,9 @@
    | This template renders the web search component, a search form that forwards the search query to a search portlet.
   -->
   <xsl:template name="web.search">
-    <div id="webSearchContainer" class="fl-widget col-md-4 col-md-offset-4">
+    <div id="webSearchContainer" class="fl-widget">
       <div class="fl-widget-inner">
-      	<div class="fl-widget-titlebar sr-only">
+      	<div class="fl-widget-titlebar">
           <xsl:choose>
             <xsl:when test="$USE_SIDEBAR_TOGGLE='true'">
               <a href="javascript:;" title="{upMsg:getMessage('sidebar.titlebar.close', $USER_LANG)}">
@@ -573,7 +573,7 @@
              <xsl:otherwise><h2><label for="webSearchInput"><xsl:value-of select="upMsg:getMessage('web.search', $USER_LANG)"/></label></h2></xsl:otherwise>
           </xsl:choose>
         </div>
-        <div class="fl-widget-content pull-right">
+        <div class="fl-widget-content">
             <xsl:variable name="searchUrl">
                 <xsl:call-template name="portalUrl">
                     <xsl:with-param name="url">
@@ -592,6 +592,13 @@
       </div>
     </div>
   </xsl:template>
+
+  <!-- ========== TEMPLATE: WEB SEARCH ========== -->
+  <xsl:template name="web.toolbar">
+    <xsl:copy-of select="//channel[@fname = 'toolbar']"/>
+  </xsl:template>
+  <!-- ========================================== -->
+  
   <!-- ========================================== -->
 
 

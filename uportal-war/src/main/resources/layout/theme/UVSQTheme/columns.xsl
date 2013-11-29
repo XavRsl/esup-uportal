@@ -72,12 +72,9 @@
         </xsl:variable>
         <xsl:variable name="COLUMN_WIDTH">
         	<xsl:choose>
-            <xsl:when test="@width = '100%'"><xsl:value-of select="100" /></xsl:when>
-            <xsl:otherwise><xsl:value-of select="round(substring-before(@width,'%'))" /></xsl:otherwise>
+            <xsl:when test="@width = '100%'"></xsl:when>
+            <xsl:otherwise><xsl:value-of select="floor(substring-before(@width,'%'))" /></xsl:otherwise>
           </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="GRID_COLUMN">
-					<xsl:value-of select="number($COLUMN_WIDTH) * 12 div 100" />
         </xsl:variable>
         <xsl:variable name="MOVABLE">
           <xsl:choose>
@@ -104,7 +101,7 @@
           </xsl:choose>
         </xsl:variable>
         
-        <div id="column_{@ID}" class="portal-page-column col-md-{$GRID_COLUMN} {$POSITION} {$MOVABLE} {$DELETABLE} {$EDITABLE} {$CAN_ADD_CHILDREN}"> <!-- Unique column_ID needed for drag and drop. -->
+        <div id="column_{@ID}" class="portal-page-column {$POSITION} fl-container-flex{$COLUMN_WIDTH} {$MOVABLE} {$DELETABLE} {$EDITABLE} {$CAN_ADD_CHILDREN}"> <!-- Unique column_ID needed for drag and drop. -->
           <div id="inner-column_{@ID}" class="portal-page-column-inner"> <!-- Column inner div for additional presentation/formatting options.  -->
             <xsl:if test="$IS_FRAGMENT_ADMIN_MODE='true'">
             	<div class="column-permissions"><a class="button portal-column-permissions-link" href="javascript:;"><span class="icon permissions"></span><xsl:value-of select="upMsg:getMessage('edit.column.x.permissions', $USER_LANG, $NUMBER)"/></a></div>

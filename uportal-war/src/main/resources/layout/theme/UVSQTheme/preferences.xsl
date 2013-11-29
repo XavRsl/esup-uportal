@@ -366,7 +366,7 @@
     <xsl:template name="gallery">
     	<xsl:if test="$AUTHENTICATED = 'true'">
         <chunk-point/> <!-- Performance Optimization, see ChunkPointPlaceholderEventSource -->
-        <div class="up-gallery container">
+        <div class="up-gallery">
             <h2 class="handle">
                 <a><span class="handle-arrow-up"><xsl:value-of select="upMsg:getMessage('customize', $USER_LANG)"/></span></a>
             </h2>

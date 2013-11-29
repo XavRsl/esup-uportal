@@ -159,12 +159,11 @@
   -->
   <xsl:variable name="INSTITUTION">
     <xsl:choose>
-      <xsl:when test="$SKIN='UVSQSkin'">UVSQSkin</xsl:when>
-      <xsl:when test="$SKIN='university' or $SKIN='university-div1' or $SKIN='university-div2'">university</xsl:when>
+      <xsl:when test="$SKIN='university' or $SKIN='UVSQSkin' or $SKIN='university-div1' or $SKIN='university-div2'">university</xsl:when> <!-- Set all institution skins to a specific theme configuration  -->
       <xsl:when test="$SKIN='coal'">coal</xsl:when>
       <xsl:when test="$SKIN='ivy'">ivy</xsl:when>
 	  <xsl:when test="$SKIN='hc'">hc</xsl:when>
-      <xsl:otherwise>UVSQTheme</xsl:otherwise>
+      <xsl:otherwise>uportal</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -455,6 +454,8 @@
 
     <!-- Quicklinks
     <xsl:call-template name="quicklinks"/> -->
+
+    <xsl:call-template name="web.toolbar"/>
 
     <!-- Emergency Alert -->
     <div id="portalHeaderBlock">
@@ -906,7 +907,7 @@
         <xsl:for-each select="//navigation/tab">
           <xsl:if test="(position() mod $TAB_WRAP_COUNT)=1">
             <xsl:variable name="ROW_NUM" select="ceiling(position() div $TAB_WRAP_COUNT)" />
-            <div class="row fl-container-flex fl-col-flex4">
+            <div class="fl-container-flex fl-col-flex4">
               <xsl:for-each select="//navigation/tab">
                 <xsl:if test="ceiling(position() div $TAB_WRAP_COUNT) = $ROW_NUM">
                     <xsl:variable name="tabLinkUrl">
@@ -918,7 +919,7 @@
                         </xsl:with-param>
                       </xsl:call-template>
                     </xsl:variable>
-                    <div class="col-md-2 fl-col">
+                    <div class="fl-col">
                       <div><a href="{$tabLinkUrl}"><xsl:value-of select="upElemTitle:getTitle(@ID, $USER_LANG, @name)"/></a></div>
                       <ul>
                           <xsl:for-each select="tabChannel">
@@ -943,10 +944,10 @@
         </xsl:for-each>
     </div>
 
-    <xsl:if test="$INSTITUTION='UVSQSkin' or $INSTITUTION='uportal' or $INSTITUTION='coal' or $INSTITUTION='ivy' or $INSTITUTION='hc'">
+    <xsl:if test="$SKIN='UVSQSkin' or $INSTITUTION='uportal' or $INSTITUTION='coal' or $INSTITUTION='ivy' or $INSTITUTION='hc'">
 			<div id="portalPageFooterContent">
       <!-- Footer Links -->
-      	<div id="portalPageFooterLinks" class="row">
+      	<div id="portalPageFooterLinks">
 	        <a href="http://www.jasig.org/" target="_blank" title="{upMsg:getMessage('go.to.jasig.site', $USER_LANG)}">
 	          <xsl:value-of select="upMsg:getMessage('jasig.org', $USER_LANG)"/>
 	          <!--<xsl:value-of select="jasig.org"/>-->
@@ -975,7 +976,7 @@
 	      </div>
 
 	      <!-- uPortal Product Version -->
-	      <div id="portalProductAndVersion" class="row">
+	      <div id="portalProductAndVersion">
 	        <p>
                 <a href="http://www.jasig.org/uportal" title="{upMsg:getMessage('footer.uportal.powered.by', $USER_LANG)} {$UP_VERSION}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.uportal.powered.by', $USER_LANG)"/><xsl:value-of select="$UP_VERSION"/></a><xsl:value-of select="upMsg:getMessage('footer.open.source', $USER_LANG)"/><a href="http://www.jasig.org" title="Jasig.org - Open for Higher Education">Jasig</a> - <span><xsl:value-of select="$SERVER_NAME"/></span>
                 <xsl:if test="$AUTHENTICATED='true'">
@@ -989,12 +990,12 @@
 	      </div>
 
 	      <!-- Copyright -->
-	      <div id="portalCopyright" class="row">
+	      <div id="portalCopyright">
 	        <p><a href="http://www.jasig.org/uportal/about/license" title="uPortal" target="_blank">uPortal </a><xsl:value-of select="upMsg:getMessage('footer.uportal.licensed', $USER_LANG)"/><a href="http://www.apache.org/licenses/LICENSE-2.0" title="Apache License, Version 2.0" target="_blank">Apache License, Version 2.0 </a> <xsl:value-of select="upMsg:getMessage('footer.license.approvment', $USER_LANG)"/><a href="http://www.opensource.org/docs/osd" title="{upMsg:getMessage('footer.osi', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.osi', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.open.license', $USER_LANG)"/><a href="http://www.gnu.org/licenses/license-list.html" title="{upMsg:getMessage('footer.gnu', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.gnu', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.free.license', $USER_LANG)"/></p>
 	      </div>
 
 	      <!-- Icon Set Attribution -->
-	      <div id="silkIconsAttribution" class="row">
+	      <div id="silkIconsAttribution">
 	        <p><a href="http://www.famfamfam.com/lab/icons/silk/" title="{upMsg:getMessage('footer.icon.set', $USER_LANG)}" target="_blank"><xsl:value-of select="upMsg:getMessage('footer.icon.set', $USER_LANG)"/> </a><xsl:value-of select="upMsg:getMessage('footer.icon.set.author', $USER_LANG)"/></p>
 	        <!-- Silk icon set 1.3 by Mark James [ http://www.famfamfam.com/lab/icons/silk/ ], which is licensed under a Creative Commons Attribution 2.5 License. [ http://creativecommons.org/licenses/by/2.5/ ].  This icon set is free for use under the CCA 2.5 license, so long as there is a link back to the author's site.  If the Silk icons are used, this reference must be present in the markup, though not necessarily visible in the rendered page.  If you don't want the statement to visibly render in the page, use CSS to make it invisible. -->
 	      </div>

@@ -41,8 +41,13 @@
     	<constructor-arg name="sessionRegistry" ref="sessionRegistry" />
  	</bean>
 
-    <bean id="portalPreAuthenticationFilter"
+    <!--<bean id="portalPreAuthenticationFilter"
         class="org.jasig.portal.spring.security.preauth.PortalPreAuthenticatedProcessingFilter">
+        <property name="authenticationManager" ref="authenticationManager" />
+    </bean>-->
+
+    <bean id="portalPreAuthenticationFilter"
+        class="fr.insa_lyon.portal.spring.security.preauth.PortalPreAuthenticatedProcessingFilter">
         <property name="authenticationManager" ref="authenticationManager" />
     </bean>
   
