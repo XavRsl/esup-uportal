@@ -20,11 +20,17 @@ public class PortalPreAuthenticatedProcessingFilter extends org.jasig.portal.spr
 	protected void afterPortalAuthentication(HttpServletRequest request,
 			IPerson person) {
 		if ( person != null && person.getSecurityContext().isAuthenticated() ) {
+			System.out.println("Person OK");
 			ISecurityContext ctx = ( person.getSecurityContext().getAuthType() == ICasSecurityContext.CAS_AUTHTYPE ) ? person.getSecurityContext() : person.getSecurityContext().getSubContext("cas");
 			if ( ctx != null && ctx.isAuthenticated() ) {
+				System.out.println("ctx not null");
+				System.out.println("Requested Sessions ID\n" + request.getRequestedSessionId());
+				System.out.println("is token Request ?\n" + SingleSignOutFilter.getSingleSignOutHandler().isTokenRequest(request));
 				if ( SingleSignOutFilter.getSingleSignOutHandler().isTokenRequest(request) ) {
 					HttpSession session = request.getSession(false);
 					final String token = CommonUtils.safeGetParameter(request, this.artifactParameterName);
+					System.out.println("token\n" + token);
+					System.out.println("session\n" + session.getId());
 					if ( session != null && token != null ) {
 						try {
 							SingleSignOutFilter.getSingleSignOutHandler().getSessionMappingStorage().removeBySessionById(session.getId());

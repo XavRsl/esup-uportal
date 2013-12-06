@@ -54,20 +54,24 @@ public class SingleSignOutFilter extends AbstractConfigurationFilter {
 		
 		if ( handler.isLogoutRequest(request) ) {
 			final String logoutMessage = CommonUtils.safeGetParameter(request, this.logoutParameterName);
-	        if (log.isTraceEnabled()) {
-	            log.trace ("Logout request:\n" + logoutMessage);
-	        }
+	        //if (log.isTraceEnabled()) {
+	            System.out.println ("Logout request:\n" + logoutMessage);
+	        //}
 		        
 	        final String token = XmlUtils.getTextForElement(logoutMessage, "SessionIndex");
+					System.out.println ("This is the token:\n" + token);
 	        if (CommonUtils.isNotBlank(token)) {
+	        	//final HttpSession sess = handler.getSessionMappingStorage();
+						//System.out.println ("Temporary Session:\n" + sess);
 	        	final HttpSession session = handler.getSessionMappingStorage().removeSessionByMappingId(token);
+						System.out.println ("This is the session:\n" + session);
 
 	        	if (session != null) {
 	        		String sessionID = session.getId();
 
-	                if (log.isDebugEnabled()) {
-	                    log.debug ("Invalidating session [" + sessionID + "] for token [" + token + "]");
-	                }
+	                //if (log.isDebugEnabled()) {
+	                    System.out.println ("Invalidating session [" + sessionID + "] for token [" + token + "]");
+	                //}
 	                try {
 	                    session.invalidate();
 	                } catch (final IllegalStateException e) {

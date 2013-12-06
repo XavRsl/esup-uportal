@@ -55,6 +55,9 @@
         <param-value>classpath:/properties/contexts/*.xml,classpath:/properties/contextOverrides/*.xml</param-value>
     </context-param>
    
+		<listener>
+				<listener-class>org.jasig.cas.client.session.SingleSignOutHttpSessionListener</listener-class>
+		</listener>
     <!--
         - Configures Log4J for this web app.
         - As this context specifies a context-param "log4jConfigLocation", its file path
@@ -137,6 +140,11 @@
         <init-param>
             <param-name>proxyReceptorUrl</param-name>
             <param-value>/CasProxyServlet</param-value>
+        </init-param>
+        <!-- OF - do not redirect to let SSO global logout do it's work -->
+        <init-param>
+            <param-name>redirectAfterValidation</param-name>
+            <param-value>false</param-value>
         </init-param>
     </filter>
     
